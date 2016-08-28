@@ -59,6 +59,14 @@ describe('保龄球', ()=> {
         expect(game.getSourceForFrame(1)).toBe(19);
         expect(game.getSource()).toBe(28);
         expect(game.getCurrentFrame()).toBe(3);
+    });
+
+    fit('测试10次全中',()=>{
+        for(var i = 0;i <= 10; i++){
+            game.add(10);
+            game.add(10);
+        }
+        expect(game.getSource()).toBe(300);
     })
 
 })
