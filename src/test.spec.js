@@ -52,7 +52,7 @@ describe('保龄球', ()=> {
         expect(game.getSource()).toBe(18);
     });
 
-    fit('测试全中', ()=> {
+    it('测试全中', ()=> {
         game.add(10);
         game.add(3);
         game.add(6);
