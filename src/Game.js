@@ -15,12 +15,16 @@ export default class Game {
     add(pins) {
         this.throws[this.currentThrow++] = pins;
         this.source += pins;
-        this.adjustCurrentFrame();
+        this.adjustCurrentFrame(pins);
     }
 
-    adjustCurrentFrame() {
+    adjustCurrentFrame(pins) {
         if (this.firstThrow) {
-            this.firstThrow = false;
+            if (pins == 10) {
+                this.currentFrame++;
+            } else {
+                this.firstThrow = false;
+            }
         } else {
             this.firstThrow = true;
             this.currentFrame++;
@@ -39,12 +43,16 @@ export default class Game {
             source = 0;
         for (var currentFrame = 0; currentFrame < theFrame; currentFrame++) {
             var firstThrow = this.throws[ball++];
-            var secondThrow = this.throws[ball++];
-            var frameSource = firstThrow + secondThrow;
-            if (frameSource == 10) {
-                source += frameSource + this.throws[ball];
+            if (firstThrow == 10) {
+                source += firstThrow + this.throws[ball] + this.throws[ball + 1];
             } else {
-                source += frameSource;
+                var secondThrow = this.throws[ball++];
+                var frameSource = firstThrow + secondThrow;
+                if (frameSource == 10) {
+                    source += frameSource + this.throws[ball];
+                } else {
+                    source += frameSource;
+                }
             }
         }
         return source;
