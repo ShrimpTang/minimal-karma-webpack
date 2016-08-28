@@ -13,8 +13,7 @@ module.exports = function (config) {
       noInfo: true
     },
     colors: true,
-    browsers: ['PhantomJS'],
-    singleRun: true
+    browsers: ['Chrome'],
   });
 
 
@@ -25,7 +24,7 @@ function webpackConfig() {
   delete config.context;
   delete config.entry;
   delete config.output;
-  delete config.devServer;
+ // delete config.devServer;
 
   return config;
 }
