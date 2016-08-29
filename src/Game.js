@@ -29,6 +29,7 @@ export default class Game {
             this.firstThrow = true;
             this.currentFrame++;
         }
+        this.currentFrame = Math.min(11,this.currentFrame)
     }
 
     getCurrentFrame() {
