@@ -62,11 +62,21 @@ describe('保龄球', ()=> {
     });
 
     fit('测试10次全中',()=>{
-        for(var i = 0;i <= 10; i++){
-            game.add(10);
+        for(var i = 0;i <= 11; i++){
             game.add(10);
         }
         expect(game.getSource()).toBe(300);
+    })
+
+    it('测试8次0  9补中 10全中',()=>{
+        for(var i = 0;i < 9 ; i++){
+            game.add(0);
+            game.add(0);
+        }
+        game.add(2);
+        game.add(8);
+        game.add(10);
+        expect(game.getSource()).toBe(20);
     })
 
 })
